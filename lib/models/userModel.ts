@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const ContactSchema = new Schema({
+const UserSchema = new Schema({
     // firstName: {
     //     type: String,
     //     required: 'Enter a first name'
@@ -28,7 +28,7 @@ const ContactSchema = new Schema({
     userId:String
 });
 
-let User = mongoose.model("Contact", ContactSchema);
+let User = mongoose.model("Contact", UserSchema);
 
 // make this model available
 module.exports = User;
