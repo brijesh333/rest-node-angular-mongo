@@ -28,7 +28,7 @@ const UserSchema = new Schema({
     userId:String
 });
 
-let User = mongoose.model("Contact", UserSchema);
+let User = mongoose.model("User", UserSchema);
 
 // make this model available
 module.exports = User;
