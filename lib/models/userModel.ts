@@ -3,29 +3,30 @@ import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    // firstName: {
-    //     type: String,
-    //     required: 'Enter a first name'
-    // },
-    // lastName: {
-    //     type: String,
-    //     required: 'Enter a first name'
-    // },
-    // email: {
-    //     type: String            
-    // },
-    // company: {
-    //     type: String            
-    // },
-    // phone: {
-    //     type: Number            
-    // },
-    // created_date: {
-    //     type: Date,
-    //     default: Date.now
-    // }
-    name:String,
-    userId:String
+    userId: String,
+    password: String,
+    guardian: {
+        name: String,
+        contactNo: String
+    },
+    userDetail: {
+        firstName: String,
+        lastName: String,
+        dob: String,
+        contactNo: String,
+        emailId: String,
+        gender: String,
+        addressDetails: {
+            address: String,
+            city: String,
+            state: String,
+            pincode: String
+        }
+    },
+    emargencyContactDetail: {
+        name: String,
+        contactNo: String
+    }
 });
 
 let User = mongoose.model("User", UserSchema);

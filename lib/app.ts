@@ -6,26 +6,29 @@ import * as mongoose from "mongoose";
 class App {
 
     public app: express.Application = express();
+    cors = require('cors');
+    // this.app.use(cors());
     public routePrv: Routes = new Routes();
-    public mongoUrl: string = 'mongodb://localhost/CRMdb';  
+    public mongoUrl: string = 'mongodb://localhost/userdb';
     // public mongoUrl: string = 'mongodb://brijeshPatel:123123@localhost:27017/CRMdb';
 
     constructor() {
+        this.app.use(this.cors());
         this.config();
         this.mongoSetup();
-        this.routePrv.routes(this.app);     
+        this.routePrv.routes(this.app);
     }
 
-    private config(): void{
+    private config(): void {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
         // serving static files 
         this.app.use(express.static('public'));
     }
 
-    private mongoSetup(): void{
+    private mongoSetup(): void {
         mongoose.Promise = global.Promise;
-        mongoose.connect(this.mongoUrl, {useNewUrlParser: true});        
+        mongoose.connect(this.mongoUrl, { useNewUrlParser: true });
     }
 
 }
